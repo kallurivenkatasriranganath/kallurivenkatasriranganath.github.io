@@ -21,3 +21,34 @@ if (closeBanner && birthdayBanner) {
 setTimeout(() => {
   birthdayBanner.style.display = 'none';
 }, 4000);
+
+
+/* =========================
+   Birthday Music
+========================= */
+
+const birthdayAudio =
+  document.getElementById('birthday-audio');
+
+/* Set Low Volume */
+
+if (birthdayAudio) {
+
+  birthdayAudio.volume = 0.25;
+
+  /* Attempt autoplay */
+
+  birthdayAudio.play().catch(() => {
+
+    /* Fallback:
+       Play after first click */
+
+    document.body.addEventListener(
+      'click',
+      () => {
+        birthdayAudio.play();
+      },
+      { once: true }
+    );
+  });
+}
