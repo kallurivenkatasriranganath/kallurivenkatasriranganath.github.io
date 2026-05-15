@@ -20,4 +20,4 @@ if (closeBanner && birthdayBanner) {
 }
 setTimeout(() => {
   birthdayBanner.style.display = 'none';
-}, 8000);
+}, 5000);
