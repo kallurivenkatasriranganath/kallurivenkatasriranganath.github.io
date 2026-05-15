@@ -43,6 +43,7 @@ h3 { font-size: clamp(19px, 1.35vw, 24px); color: var(--bhu-deep); }
 .quick-stats strong { display: block; color: var(--bhu-deep); }
 .quick-stats span { font-size: 13px; color: var(--muted); }
 .profile-card { background: white; border-radius: 34px; padding: 18px; border: 1px solid var(--border); box-shadow: var(--shadow); transform: none; max-width: 420px; justify-self: end; }
+.profile-card:hover {   transform: translateY(-6px);    box-shadow:     0 20px 50px rgba(74,0,16,0.18); }
 .profile-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 24px; background: #f3ead6; }
 .profile-card-body { padding: 18px 8px 6px; }
 .profile-card-body h2 { font-size: 25px; }
