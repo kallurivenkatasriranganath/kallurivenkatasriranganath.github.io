@@ -20,12 +20,6 @@ if (closeBanner && birthdayBanner) {
   closeBanner.addEventListener('click', () => {
 
     birthdayBanner.style.display = 'none';
-    if (birthdayAudio) {
-
-  birthdayAudio.pause();
-
-  birthdayAudio.currentTime = 0;
-}
   });
 }
 setTimeout(() => {
