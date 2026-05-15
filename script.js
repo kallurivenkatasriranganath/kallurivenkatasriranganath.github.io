@@ -18,3 +18,6 @@ if (closeBanner && birthdayBanner) {
     birthdayBanner.style.display = 'none';
   });
 }
+setTimeout(() => {
+  birthdayBanner.style.display = 'none';
+}, 8000);
