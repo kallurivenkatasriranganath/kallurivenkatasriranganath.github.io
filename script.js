@@ -5,56 +5,81 @@ toggle.addEventListener('click', () => links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => links.classList.remove('open')));
 
 
-const closeBanner =
-  document.getElementById('close-banner');
+/* =========================
+   Birthday Banner + Music
+========================= */
 
 const birthdayBanner =
   document.getElementById('birthday-banner');
+
+const closeBanner =
+  document.getElementById('close-banner');
+
+const birthdayAudio =
+  document.getElementById('birthday-audio');
+
+/* Play Music */
+
+function playBirthdayMusic() {
+
+  if (!birthdayAudio) return;
+
+  birthdayAudio.volume = 0.25;
+
+  const playPromise =
+    birthdayAudio.play();
+
+  if (playPromise !== undefined) {
+
+    playPromise.catch(() => {
+
+      /* Browser blocked autoplay */
+
+      document.body.addEventListener(
+        'click',
+        () => {
+          birthdayAudio.play();
+        },
+        { once: true }
+      );
+
+    });
+  }
+}
+
+/* Start Music When Page Loads */
+
+window.addEventListener('load', () => {
+
+  setTimeout(() => {
+
+    playBirthdayMusic();
+
+  }, 800);
+});
+
+/* Close Banner */
 
 if (closeBanner && birthdayBanner) {
 
   closeBanner.addEventListener('click', () => {
 
-    birthdayBanner.style.display = 'none';
+    birthdayBanner.style.opacity = '0';
+
+    setTimeout(() => {
+
+      birthdayBanner.style.display = 'none';
+
+    }, 500);
+
+    /* Stop Music */
+
     if (birthdayAudio) {
 
-  birthdayAudio.pause();
+      birthdayAudio.pause();
 
-  birthdayAudio.currentTime = 0;
-}
-  });
-}
-setTimeout(() => {
-  birthdayBanner.style.display = 'none';
-}, 4000);
+      birthdayAudio.currentTime = 0;
+    }
 
-
-/* =========================
-   Birthday Music
-========================= */
-
-const birthdayAudio =
-  document.getElementById('birthday-audio');
-
-/* Set Low Volume */
-
-if (birthdayAudio) {
-
-  birthdayAudio.volume = 0.25;
-
-  /* Attempt autoplay */
-
-  birthdayAudio.play().catch(() => {
-
-    /* Fallback:
-       Play after first click */
-
-    document.body.addEventListener(
-      'click',
-      () => {
-        birthdayAudio.play();
-      },
-      { once: true }
-    );
   });
 }
