@@ -6,80 +6,28 @@ links.querySelectorAll('a').forEach(link => link.addEventListener('click', () =>
 
 
 /* =========================
-   Birthday Banner + Music
+   Birthday Banner
 ========================= */
-
-const birthdayBanner =
-  document.getElementById('birthday-banner');
 
 const closeBanner =
   document.getElementById('close-banner');
 
-const birthdayAudio =
-  document.getElementById('birthday-audio');
-
-/* Play Music */
-
-function playBirthdayMusic() {
-
-  if (!birthdayAudio) return;
-
-  birthdayAudio.volume = 0.25;
-
-  const playPromise =
-    birthdayAudio.play();
-
-  if (playPromise !== undefined) {
-
-    playPromise.catch(() => {
-
-      /* Browser blocked autoplay */
-
-      document.body.addEventListener(
-        'click',
-        () => {
-          birthdayAudio.play();
-        },
-        { once: true }
-      );
-
-    });
-  }
-}
-
-/* Start Music When Page Loads */
-
-window.addEventListener('load', () => {
-
-  setTimeout(() => {
-
-    playBirthdayMusic();
-
-  }, 800);
-});
-
-/* Close Banner */
+const birthdayBanner =
+  document.getElementById('birthday-banner');
 
 if (closeBanner && birthdayBanner) {
 
   closeBanner.addEventListener('click', () => {
 
-    birthdayBanner.style.opacity = '0';
-
-    setTimeout(() => {
-
-      birthdayBanner.style.display = 'none';
-
-    }, 500);
-
-    /* Stop Music */
-
+    birthdayBanner.style.display = 'none';
     if (birthdayAudio) {
 
-      birthdayAudio.pause();
+  birthdayAudio.pause();
 
-      birthdayAudio.currentTime = 0;
-    }
-
+  birthdayAudio.currentTime = 0;
+}
   });
 }
+setTimeout(() => {
+  birthdayBanner.style.display = 'none';
+}, 4000);
