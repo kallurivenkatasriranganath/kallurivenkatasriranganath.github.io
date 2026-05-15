@@ -68,11 +68,161 @@ h3 { font-size: clamp(19px, 1.35vw, 24px); color: var(--bhu-deep); }
 .timeline div { background: white; border-left: 6px solid var(--bhu-gold); border-radius: 18px; padding: 20px; box-shadow: 0 10px 30px rgba(74,0,16,.06); }
 .timeline strong { display: block; color: var(--bhu-deep); margin-bottom: 4px; }
 .timeline span { color: var(--muted); }
-.contact-box { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .footer { background: var(--bhu-deep); color: #fff; padding: 26px 0; }
 .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
 .footer a { color: var(--bhu-gold); font-weight: 700; }
 
+/* =========================
+   Contact Section
+========================= */
+
+.contact-box {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+
+  background: #ffffff;
+
+  border-radius: 36px;
+
+  padding:
+    clamp(2rem, 5vw, 4rem);
+
+  border: 1px solid var(--border);
+
+  box-shadow:
+    0 12px 42px rgba(74,0,16,0.08);
+
+  margin-top: 2rem;
+}
+
+/* Left Content */
+
+.contact-content {
+  flex: 1;
+  max-width: 760px;
+}
+
+.contact-content h2 {
+
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+
+  font-size:
+    clamp(3rem, 5vw, 5rem);
+
+  line-height: 1;
+
+  color: var(--bhu-deep);
+}
+
+.contact-text {
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+
+  color: #4d4448;
+
+  max-width: 700px;
+}
+
+/* Email */
+
+.contact-meta {
+
+  margin-top: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  flex-wrap: wrap;
+
+  font-size: 1rem;
+}
+
+.contact-meta span {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.contact-meta a {
+
+  color: var(--bhu-maroon);
+
+  font-weight: 800;
+}
+
+.contact-meta a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+
+.contact-actions {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1rem;
+
+  min-width: 220px;
+}
+
+.contact-actions .btn {
+
+  width: 100%;
+
+  min-height: 54px;
+
+  font-size: 1rem;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 980px) {
+
+  .contact-box {
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2rem;
+  }
+
+  .contact-actions {
+
+    width: 100%;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+  }
+
+  .contact-actions .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 640px) {
+
+  .contact-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+}
 
 .journal {
   display: inline-flex;
