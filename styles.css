@@ -527,3 +527,112 @@ h3 { font-size: clamp(19px, 1.35vw, 24px); color: var(--bhu-deep); }
     font-size: 1rem;
   }
 }
+
+/* =========================
+   Confetti Animation
+========================= */
+
+.confetti-container {
+
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+/* Individual Pieces */
+
+.confetti {
+
+  position: absolute;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--bhu-gold);
+
+  top: -20px;
+
+  opacity: 0.85;
+
+  animation:
+    confettiFall linear infinite;
+}
+
+/* Different Positions */
+
+.confetti:nth-child(1) {
+  left: 10%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+
+.confetti:nth-child(2) {
+  left: 20%;
+  background: #ffffff;
+  animation-duration: 8s;
+  animation-delay: 1s;
+}
+
+.confetti:nth-child(3) {
+  left: 35%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+
+.confetti:nth-child(4) {
+  left: 50%;
+  background: #f7d774;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+
+.confetti:nth-child(5) {
+  left: 65%;
+  animation-duration: 7s;
+  animation-delay: 3s;
+}
+
+.confetti:nth-child(6) {
+  left: 75%;
+  background: white;
+  animation-duration: 8s;
+  animation-delay: 2s;
+}
+
+.confetti:nth-child(7) {
+  left: 85%;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+
+.confetti:nth-child(8) {
+  left: 95%;
+  animation-duration: 10s;
+  animation-delay: 0s;
+}
+
+/* Falling Animation */
+
+@keyframes confettiFall {
+
+  0% {
+
+    transform:
+      translateY(-20px)
+      rotate(0deg);
+
+    opacity: 1;
+  }
+
+  100% {
+
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+    opacity: 0.2;
+  }
+}
